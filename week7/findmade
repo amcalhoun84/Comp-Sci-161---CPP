@@ -1,0 +1,84 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+std::vector <int> findMode(int[], int);
+
+/*int main()
+{
+
+		int size;
+		int numArray[size];
+
+
+		std::cout << "Please state your array\'s desired size." << std::endl;
+		std::cin >> size;
+		std::cout << "Your array is " << size << " members." << std::endl;
+
+		for (int a=1; a<=size; a++)
+			{
+				std::cout << "Please input a number : " << a << " out of " << size << std::endl;
+				std::cin >> numArray[a];
+			}
+
+			std::cout << "{ ";
+			for (int b=1; b<=size; b++)
+			{	
+				if (b != size)
+				std::cout << numArray[b] << ", ";
+				else
+				std::cout << numArray[b];
+				
+			}
+
+		std::cout << " }" << std::endl;
+		findMode(numArray, size);
+		return 0;
+
+
+}*/
+
+std::vector <int>findMode (int numArray[], int num)
+{
+
+	int	modeMax = 0; 
+	int mode = numArray[0];
+	int freq = 0;
+	
+	std::vector <int> result; 
+
+	 for (int i = 0; i < num - 1; i++)
+		{	
+		for(int j=0; j < num; j++)
+			{
+			if(numArray[i] == numArray[j])
+				freq++;
+
+				if(freq > modeMax)
+					{
+					//	std::cout << "Num-i: " << numArray[i] << std::endl;		
+					//	std::cout << "Num-j: " << numArray[j] << std::endl;						
+					
+						modeMax = freq;
+						mode = numArray[i];
+						
+	
+					}
+				else
+					freq = 1;
+		}}
+
+		for(int i = 0; i<num; i++)
+		{
+			if (numArray[i] == mode)
+				result.push_back(numArray[i]);
+				// std::cout << "Proper Num Push: " << numArray[i] << std::endl;
+		}
+
+
+		std::sort(result.begin(), result.end());
+		
+		// std::cout << "True Mode: " << mode << std::endl;
+
+		return result;
+}
